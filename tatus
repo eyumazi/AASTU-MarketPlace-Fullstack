@@ -1,0 +1,175 @@
+[33mcommit f0100210a1934e07362ad38c70846735fd1b687a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcontactus[m[33m, [m[1;31morigin/contactus[m[33m)[m
+Author: fekadu argeta <fekaduargeta@gmail.com>
+Date:   Fri May 9 21:39:03 2025 +0300
+
+    updated contact us page with backend functionality
+
+[33mcommit 1e9e1cc08eb0963be8a1625dbc7cf9f9aff43fe5[m
+Author: fekadu argeta <fekaduargeta@gmail.com>
+Date:   Fri May 9 21:30:55 2025 +0300
+
+    contact us page has been added
+
+[33mcommit f66890d9147c0e2a2f295a71727f399426bd3263[m[33m ([m[1;31morigin/testBranch[m[33m, [m[1;31morigin/signup[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri May 2 20:55:58 2025 +0300
+
+    Email verification is added to the project.
+
+[33mcommit fc79c86d501f97a712b1c819ade905310df6ec07[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri May 2 20:55:24 2025 +0300
+
+    email verification have been added to the registration page.
+
+[33mcommit 9579e4f765f401db2c3966198d510d2d834da7bc[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 25 18:27:24 2025 +0300
+
+    php.ini is added
+
+[33mcommit 72f07ae0cf2b41bf2ec2c00ff4c9cd56da44ce76[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 25 18:25:49 2025 +0300
+
+    Previous Project files removed
+
+[33mcommit f94a0ddd7e956d664a30b779000bd76e045c8a74[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 25 17:56:46 2025 +0300
+
+    Registratioon processing backend has been added.
+
+[33mcommit ea071c1066bf6214029143e33f936be1713a8feb[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 25 17:54:27 2025 +0300
+
+    Registration processing backend has been added.
+
+[33mcommit 44ca08091658a2de93fb7e5d0022de7b9ef75851[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 25 17:48:10 2025 +0300
+
+    Registration processing backend has been added.
+
+[33mcommit c319e487b373f98ee1682977c7cfb2c9bf9e060a[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 25 13:26:06 2025 +0300
+
+    Moved contents to a new branch and updated files
+
+[33mcommit 5e305662e36d4e766704d9bd2a2960817a8921c8[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 17:13:57 2025 +0300
+
+    update Registration
+
+[33mcommit a072f8ffa06d92d3f80ee70989ea0addf2f37bcb[m
+Merge: a24c18e b53f762
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 17:11:51 2025 +0300
+
+    Merge branch 'signup' of https://github.com/eyumazi/AASTU-MarketPlace-Fullstack into signup
+
+[33mcommit a24c18e47ea9b6b8041266b05336f867a9178e6c[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 17:05:34 2025 +0300
+
+    updated Registration
+
+[33mcommit 5ce9fadbfab09d4d89e0d2f2ea2908cac086da89[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 16:42:55 2025 +0300
+
+    Profile picture upload is added on the Registration form
+
+[33mcommit b53f762d3c6bddfa32630aa35a8d1e58002968a7[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 16:08:40 2025 +0300
+
+    Registration Edited
+
+[33mcommit 8f43b948617f83849d023af9a3e5a07161758307[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 13:52:16 2025 +0300
+
+    Login page is added
+
+[33mcommit aac8f1670d7e007c13b49856bfca6e6f4e46436a[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 12:29:44 2025 +0300
+
+    Animations are added to the registration page
+
+[33mcommit 1e2444f59000ef851ca3a432bd36263cc23b49e2[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 11:40:15 2025 +0300
+
+    Registration page updated
+
+[33mcommit 564ad3c1c5f734b2e664e9edee534238c989f423[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Thu Apr 24 11:13:24 2025 +0300
+
+    Registration page CSS conflict resolved
+    Some dependencies are updated
+
+[33mcommit 7537bb39b45001f1e5f058c612efb29dd2ea15ff[m
+Author: Gedion47 <gedionalemu279@gmail.com>
+Date:   Tue Apr 22 23:14:03 2025 +0300
+
+    updated link and src
+
+[33mcommit 44b88543f1cf31596862fb90a2b5819850c82e8e[m
+Author: Gedion47 <gedionalemu279@gmail.com>
+Date:   Sun Apr 20 01:59:06 2025 +0300
+
+    signup and login page converted to jsx
+
+[33mcommit 60cb725e36acd470347c78b3f5375b10907f2320[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 11 14:05:53 2025 +0300
+
+    css conflict resolved
+
+[33mcommit 2045407708e06b0f74ebd783529c4eb8640af714[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Apr 11 13:44:24 2025 +0300
+
+    CSS conflict have been resolved between contact us and AccountSetting page
+
+[33mcommit f47e5da75c8809d293ca4bdd1b6f67ad1927ee6a[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Mar 28 23:38:52 2025 +0300
+
+    AccountSetting is added
+
+[33mcommit c12e4c69a56d2d449fab042579ca83d46f76506a[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Mar 28 21:04:41 2025 +0300
+
+    404 Page is added
+
+[33mcommit 304909403704b13b9a75717e03b09bab5fd6ec2f[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Mar 28 20:52:09 2025 +0300
+
+    Contact us Page is added
+
+[33mcommit 6aaa3b0e46f9942b5840d01fd68d15629d59b6ff[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Mar 28 19:47:54 2025 +0300
+
+    Components are added
+
+[33mcommit a2c851bf32408ec7b68ab2e623fd613651db5f62[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Fri Mar 28 17:43:00 2025 +0300
+
+    vite project setup
+
+[33mcommit 8531b8c6ab74b79acf2606c1da0bcd83b4d93dae[m
+Author: Eyuel M. Gedlie <eyuel.mazengia@aastustudent.edu.et>
+Date:   Wed Mar 19 19:28:48 2025 +0300
+
+    IPI project frontend files have been commited

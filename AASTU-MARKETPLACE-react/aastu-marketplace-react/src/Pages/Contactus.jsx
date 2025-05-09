@@ -1,48 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/Contact us Style.css";
 import favicon from "../Assets/AASTUMARKETPLACE.png";
 import phoneIcon from "../Assets/icons-phone.png";
 import mailIcon from "../Assets/icons-mail.png";
 
 const Contactus = () => {
+  const [formData, setFormData] = useState({
+    FullName: "",
+    EmailAddress: "",
+    PhoneNumber: "",
+    Message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState({
+    success: false,
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error when user types
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrors({});
+    setStatus({ success: false, message: "" });
+
+    try {
+      const response = await fetch("http://localhost:8000/process_contactus.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to submit form");
+      }
+
+      if (result.success) {
+        setStatus({ success: true, message: result.message });
+        setFormData({
+          FullName: "",
+          EmailAddress: "",
+          PhoneNumber: "",
+          Message: "",
+        });
+      } else {
+        setErrors(result.errors || {});
+        setStatus({ success: false, message: result.message });
+      }
+    } catch (error) {
+      setStatus({
+        success: false,
+        message: error.message || "An error occurred. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta
-        name="description"
-        content="Contact us page of the ASTU marketplace"
-      />
-      <meta name="author" content="Team 1 Section B AASTU students" />
-      <meta
-        name="keywords"
-        content="AASTU, Marketplace, Buy, Sell, Contact Us"
-      />
-      <meta name="robots" content="index, follow" />
       <title>Contact Us</title>
       <link rel="icon" href={favicon} type="image/x-icon" />
-      <link
-        rel="stylesheet"
-        href="/Styles/Common Header and footer/style.css"
-      />
-      <link rel="stylesheet" href="/Contact us page/Contact us Style.css" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Sora:wght@100..800&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      />
+
       <div className="homeText">
         <span>Home /</span>
         <h4 style={{ display: "inline" }}>Contact</h4>
       </div>
+
       <div className="page-container">
         <section className="section-1">
-          <form action="#">
+          <form onSubmit={handleSubmit}>
             <div className="contact-item">
               <img className="a" src={phoneIcon} alt="Call to Us" />
               <span className="a">Call to Us</span>
@@ -86,41 +131,72 @@ const Contactus = () => {
             </h4>
           </form>
         </section>
+
         <section className="section-2">
-          <span>
-            <input
-              required
-              className="Name"
-              type="text"
-              name="FullName"
-              placeholder="Your Name *"
+          <form onSubmit={handleSubmit}>
+            <span>
+              <input
+                className={`Name ${errors.FullName ? "error" : ""}`}
+                type="text"
+                name="FullName"
+                placeholder="Your Name *"
+                value={formData.FullName}
+                onChange={handleChange}
+              />
+              {errors.FullName && (
+                <span className="error-message">{errors.FullName}</span>
+              )}
+
+              <input
+                className={`Email ${errors.EmailAddress ? "error" : ""}`}
+                type="email"
+                name="EmailAddress"
+                placeholder="Your Email *"
+                value={formData.EmailAddress}
+                onChange={handleChange}
+              />
+              {errors.EmailAddress && (
+                <span className="error-message">{errors.EmailAddress}</span>
+              )}
+
+              <input
+                className={`Phone ${errors.PhoneNumber ? "error" : ""}`}
+                type="tel"
+                name="PhoneNumber"
+                placeholder="Your Phone *"
+                value={formData.PhoneNumber}
+                onChange={handleChange}
+              />
+              {errors.PhoneNumber && (
+                <span className="error-message">{errors.PhoneNumber}</span>
+              )}
+            </span>
+
+            <textarea
+              className={errors.Message ? "error" : ""}
+              name="Message"
+              placeholder="Your Message"
+              value={formData.Message}
+              onChange={handleChange}
             />
-            <input
-              className="Email"
-              type="email"
-              name="EmailAddress"
-              placeholder="Your Email *"
-              required
-              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-              title="Please enter a valid email address (e.g., example@domain.com)"
-            />
-            <input
-              required
-              className="Phone"
-              type="tel"
-              name="PhoneNumber"
-              placeholder="Your Phone *"
-            />
-          </span>
-          <textarea
-            name="Message"
-            placeholder="Your Message"
-            required
-            defaultValue={""}
-          />
-          <button className="send-btn" type="submit">
-            Send Message
-          </button>
+            {errors.Message && (
+              <span className="error-message">{errors.Message}</span>
+            )}
+
+            <button className="send-btn" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+
+            {status.message && (
+              <div
+                className={`status-message ${
+                  status.success ? "success" : "error"
+                }`}
+              >
+                {status.message}
+              </div>
+            )}
+          </form>
         </section>
       </div>
     </div>
