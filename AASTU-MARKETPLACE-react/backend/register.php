@@ -14,11 +14,6 @@ $tableName = 'registrationdata';
 function generateVerificationCode() {
     return str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 }
-
-// Load Composer's autoloader (if using Composer)
-// require 'vendor/autoload.php';
-
-// Manually load PHPMailer classes
 require '../backend/PHPMailer-master/src/PHPMailer.php';
 require '../backend/PHPMailer-master/src/SMTP.php';
 require '../backend/PHPMailer-master/src/Exception.php';
@@ -35,8 +30,8 @@ function sendVerificationEmail($email, $code) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'dawitgetachew808@gmail.com'; // Your Gmail
-        $mail->Password   = 'ltmi inho ejhv iooz'; // Use App Password, not regular password
+        $mail->Username   = 'dawitgetachew808@gmail.com';
+        $mail->Password   = 'ltmi inho ejhv iooz'; //google app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
         
@@ -47,8 +42,6 @@ function sendVerificationEmail($email, $code) {
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'AASTU Marketplace - Email Verification';
-        
-        // Beautiful HTML email body
         $mail->Body = '
         <!DOCTYPE html>
         <html lang="en">

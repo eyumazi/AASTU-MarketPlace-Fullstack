@@ -1,0 +1,16 @@
+.star-rating {
+    font-size: 1.2rem;
+    margin: 5px 0;
+  }
+  
+  .fa-star {
+    margin-right: 2px;
+  }
+  
+  .fa-star.checked {
+    color: #ffc107;
+  }
+  
+  .head {
+    margin-right: 5px;
+  }

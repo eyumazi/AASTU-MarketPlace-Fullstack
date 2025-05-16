@@ -25,15 +25,15 @@ footer {
   }
 }
 .animate-in > * {
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.5s;
 }
 
 .animate-in > * > * {
-  animation: fadeIn 0.5s ease-out 0.1s forwards;
+  animation: fadeIn 0.5s;
 }
 
 .animate-in > * > * > * {
-  animation: fadeIn 0.5s ease-out 0.2s forwards;
+  animation: fadeIn 0.5s;
 }
 
 .fade-enter {

@@ -29,7 +29,7 @@ const Footer = () => {
           <a href="/Sign up page/signup.html">Register</a>
         </h3>
         <h3>
-          <a href="/Cart Page/index.html">Cart</a>
+          <Link to ="/cart">Cart</Link>
         </h3>
         <h3>
           <a href="/WishList Page/wishlist.html">Wishlist</a>

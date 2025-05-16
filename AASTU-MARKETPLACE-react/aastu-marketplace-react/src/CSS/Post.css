@@ -1,0 +1,195 @@
+/* Modal overlay: dark neon backdrop */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 20, 40, 0.8),
+    rgba(20, 0, 60, 0.7)
+  );
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 10vh;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
+/* Modal container: glassmorphism effect */
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 680px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 255, 255, 0.3);
+  animation: glowIn 0.5s ease-out;
+  padding: 40px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+/* Close button: neon glow */
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  color: #0ff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.modal-close-btn:hover {
+  color: #fff;
+  border-color: #0ff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+/* Glow animation */
+@keyframes glowIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    box-shadow: 0 0 0 rgba(0, 255, 255, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+}
+
+/* Inputs: neon underline effect */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 8px;
+  margin-bottom: 28px;
+  font-size: 16px;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+  border-color: #0ff;
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5);
+}
+
+.modal-content input::placeholder,
+.modal-content textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Submit button: refined neon pulse */
+.modal-content .submit-btn {
+  background: linear-gradient(90deg, #0ff, #00b7eb);
+  color: #000;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 20px;
+  float: right;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.modal-content .submit-btn:hover {
+  background: linear-gradient(90deg, #00b7eb, #0ff);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
+  transform: translateY(-3px);
+}
+
+/* Enhanced Upload Button: neon glow with animated icon */
+.modal-content .upload-btn {
+  background: linear-gradient(90deg, #575488, #3333ff);
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(164, 148, 209, 0.6);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-content .upload-btn::before {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.modal-content .upload-btn:hover {
+  background: linear-gradient(90deg, #3333ff, #575488);
+  box-shadow: 0 0 25px rgba(153, 139, 214, 0.9);
+  transform: translateY(-3px);
+}
+
+.modal-content .upload-btn:hover::before {
+  transform: translateY(-2px) rotate(20deg);
+}
+
+/* Ripple effect on click */
+.modal-content .upload-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+}
+
+.modal-content .upload-btn:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+
+/* Animation for upload progress simulation */
+@keyframes uploadPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 0, 204, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 0, 204, 1);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 204, 0.6);
+  }
+}
+
+.modal-content .upload-btn.uploading {
+  animation: uploadPulse 1.5s infinite;
+}

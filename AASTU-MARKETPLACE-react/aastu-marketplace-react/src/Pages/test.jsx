@@ -196,14 +196,15 @@ export const Registration = () => {
         body:JSON.stringify({Email, code: verificationCode}),
       })
     }
+    
+    catch(error)
+    {
+      setMessage("verification failed please try again ");
+    }
     const data = await response.json();
     if(data.message)
     {
       //redirect to welcome page
-    }
-    catch(error)
-    {
-      setMessage("verification failed please try again ");
     }
   }
 

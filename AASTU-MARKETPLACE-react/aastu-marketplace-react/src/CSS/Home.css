@@ -1,0 +1,352 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+/* main {
+  padding: 0 5%;
+} */
+
+/* Layout Containers */
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+  background-color: #fff;
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.home {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: start;
+  padding: 20px;
+  /* background-color: #f9f9f9; */
+  gap: 2em;
+}
+
+.home-upper {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.sidebar {
+  width: 15%;
+  /* background-color: #f9f9f9; */
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.sidebar ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  /* background-color: #e9e7e7; */
+  border-radius: 15px;
+  padding: auto;
+  cursor: pointer;
+  width: fit-content;
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.logo {
+  width: 30px;
+  vertical-align: middle;
+}
+
+.banner h2 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.discount {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.shop-now {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.shop-now:hover {
+  background-color: #ddd;
+}
+
+.banner-image {
+  width: 80%;
+  max-width: 200px;
+  margin-top: 20px;
+}
+
+/* Flash Sales */
+.item-sales {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.item-card {
+  width: 307px;
+  margin: 10px;
+  position: relative;
+}
+
+.item-upper {
+  background-color: white;
+  height: 250px;
+}
+
+.item-image {
+  position: relative;
+}
+
+.item-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.item-img {
+  width: 80%;
+  border-radius: 5px;
+}
+
+.item-detail {
+  padding: 10px;
+  display: flex;
+  gap: 1em;
+}
+
+.item-detail img {
+  max-height: 100%;
+}
+
+.customer-profile {
+  display: flex;
+  margin-top: 10px;
+  gap: 0.5em;
+  justify-content: space-between;
+  width: 226px;
+}
+
+.profile {
+  text-align: start;
+}
+
+.profile h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.profile p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+/* Icon Styling */
+.icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.icons .icon-heart,
+.icons .icon-eye {
+  /* background: white 0.5%; */
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Categories Header */
+.header-mini {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.indicator {
+  width: 10px;
+  height: 30px;
+  background-color: #003f6b;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.title {
+  color: #003f6b;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.heading {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #fff;
+  width: fit-content;
+  margin: 0;
+}
+
+/* View All Button */
+.view-all-btn {
+  padding: 8px 25px;
+  background-color: #003f6b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: flex-end;
+}
+
+.view-all-btn:hover {
+  background-color: #005f9e;
+}
+
+/* Middle Banner */
+.banner-2 {
+  background-color: #000;
+  color: #fff;
+  width: 90%;
+  margin-left: 5%;
+  text-align: center;
+  position: relative;
+  padding: 5% 10%;
+  margin-bottom: 50px;
+}
+
+.middle-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.banner-2 img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.banner-2 h1 {
+  font-size: 2.5em;
+  margin-top: 20px;
+}
+
+.banner-2 p {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    padding: 0px;
+  }
+
+  main img,
+  .item-img {
+    width: auto;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-now {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .dots span {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+  }
+}
+
+@media (max-width: 400px) {
+  .banner,
+  .banner-2 {
+    display: none;
+  }
+
+  .item-img {
+    width: auto;
+  }
+}
+
+/* Add this in your main CSS file or import it into the component */
+
+.floating-post-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.floating-post-btn:hover {
+  background-color: #0056b3;
+}

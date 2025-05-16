@@ -8,8 +8,11 @@
   gap: 100px;
   grid-template-columns: 1.5fr 3fr;
 }
+
 .section-1 {
   grid-column: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   height: max-content;
   padding: 35px;
@@ -19,6 +22,7 @@
   font-style: normal;
   font-size: smaller;
 }
+
 .section-1 .contact-item {
   display: flex;
   align-items: center;
@@ -35,6 +39,7 @@
   font-weight: 400;
   font-size: 13px;
 }
+
 .homeText {
   margin-top: 65px;
   margin-bottom: 50px;
@@ -44,11 +49,13 @@
   font-style: normal;
   font-size: smaller;
 }
+
 .bottom-line2 {
   width: 100%;
   height: 2px;
   background-color: #b9b9b9;
 }
+
 .section-1 h4 a {
   text-decoration: none;
   color: #000000;
@@ -58,11 +65,12 @@
 .section-1 h4 a:hover {
   color: #00a9e3;
 }
+
 /* Styles for Section 2 */
 /* Updated Section 2 Styles */
 .section-2 {
   display: grid;
-  grid-template-rows: auto 1fr auto auto; /* Added row for status message */
+  grid-template-rows: auto 1fr auto auto;
   grid-column: 2;
   width: 90%;
   height: 100%;
@@ -74,24 +82,24 @@
 }
 
 .section-2 form {
-  display: contents; /* Makes form children participate in grid */
+  display: contents;
 }
 
 .section-2 span {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row: 1;
-  gap: 15px; /* Increased gap */
+  gap: 15px;
   font-family: "Poppins", sans-serif;
   font-style: normal;
-  font-size: 14px; /* Slightly larger */
+  font-size: 14px;
   letter-spacing: 0.4px;
   font-weight: 300;
 }
 
 .section-2 span input {
   background-color: #f8f9fa;
-  padding: 12px 15px; /* More padding */
+  padding: 12px 15px;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   letter-spacing: 0.4px;
@@ -113,6 +121,11 @@
   border: 1px solid #e0e0e0;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
+  background-color: #f8f9fa;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   letter-spacing: 0.4px;
   font-weight: 300;
   border-radius: 6px;
@@ -128,18 +141,29 @@
   box-shadow: 0 0 0 2px rgba(0, 169, 227, 0.2);
 }
 
+
+.section-2 textarea:focus {
+  outline: none;
+  border-color: #00a9e3;
+  box-shadow: 0 0 0 2px rgba(0, 169, 227, 0.2);
+}
+
 .send-btn {
   display: flex;
   justify-self: end;
   justify-content: center;
   align-items: center;
   width: 150px;
-  height: 48px; /* Slightly reduced */
+  height: 48px;
   background-color: #00a9e3;
   color: white;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   letter-spacing: 0.4px;
+  font-weight: 500;
+  border-radius: 6px;
   font-weight: 500; /* Medium weight */
   border-radius: 6px;
   border: none;
@@ -147,11 +171,16 @@
   transition: all 0.3s ease;
   grid-row: 3;
   margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  grid-row: 3;
+  margin-top: 10px;
 }
+
 
 .send-btn:hover {
   background-color: #008fc7;
-  transform: scale(1.05); /* More subtle hover effect */
+  transform: scale(1.05);
   box-shadow: 0 2px 8px rgba(0, 169, 227, 0.3);
 }
 
@@ -189,6 +218,16 @@
   background-color: #f6ffed;
   color: #52c41a;
   border: 1px solid #b7eb8f;
+  background-color: #008fc7;
+  transform: scale(1.05); /* More subtle hover effect */
+  box-shadow: 0 2px 8px rgba(0, 169, 227, 0.3);
+}
+
+.send-btn:disabled {
+  background-color: #cccccc;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 .status-message.error {
@@ -197,8 +236,61 @@
   border: 1px solid #ffccc7;
 }
 
-/* Responsive adjustments (keep your existing media queries) */
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .page-container {
+    width: 90%;
+    margin-left: 5%;
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section-1 {
+    display: none;
+  }
+  
+  .page-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-2 {
+    grid-column: 1;
+    width: 100%;
+    padding: 30px;
+  }
+  
+  .homeText {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-container {
+    width: 95%;
+    margin-left: 2.5%;
+    gap: 30px;
+  }
+  
+  .section-2 {
+    padding: 25px;
+  }
+}
+
 @media screen and (max-width: 650px) {
+  .page-container {
+    width: 100%;
+    margin-left: 0;
+    padding: 15px;
+    gap: 20px;
+  }
+  
+  .section-2 {
+    padding: 20px;
+    gap: 15px;
+  }
+  
   .section-2 span {
     grid-template-columns: 1fr;
   }
@@ -209,6 +301,28 @@
   
   .send-btn {
     width: 100%;
-    margin-left: 0;
+    justify-self: center;
+  }
+  
+  .homeText {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-2 {
+    padding: 15px;
+  }
+  
+  .section-2 span input,
+  .section-2 textarea {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .send-btn {
+    height: 44px;
+    font-size: 13px;
   }
 }

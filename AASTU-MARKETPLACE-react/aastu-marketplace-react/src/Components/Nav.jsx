@@ -19,7 +19,7 @@ const Nav = () => {
   };
   return (
     <div>
-      <title>Header/Footer</title>
+      <title>AASTUMarketPlace</title>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="author" content="Team 1 Section B AASTU students" />
@@ -46,13 +46,13 @@ const Nav = () => {
           <h1 className="heading_1">AASTU Marketplace</h1>
           <ul className="navigation">
             <li>
-              <a href="/Home/Home.html">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/contacus">Contact Us</Link>
             </li>
             <li>
-              <a href="/About Page/About_us.html">About</a>
+              <Link to="/about">About Us</Link>
             </li>
             <li>
               <Link to="/signup">Sign Up</Link>
@@ -69,19 +69,24 @@ const Nav = () => {
             </button>
           </div>
           <div className="btns">
-            <a href="/WishList Page/wishlist.html">
+            <Link to="/wishlist">
               <img src={wishlistIcon} alt="Go to Wishlist" />
-            </a>
+
+            </Link>
             <a href="/Cart Page/index.html">
-              <img src={cartIcon} alt="View Cart" />
+              <Link to="/cart">
+                {" "}
+                <img src={cartIcon} alt="View Cart" />
+              </Link>
             </a>
+
             <div
               className="dropdown-container"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               style={{ position: "relative" }}
             >
-              <Link to="/accountsettings">
+              <Link to="/profile">
                 <img src={userIcon} alt="Account Settings" />
               </Link>
               {isDropdownVisible && (

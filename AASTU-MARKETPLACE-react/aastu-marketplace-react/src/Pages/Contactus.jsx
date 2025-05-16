@@ -112,21 +112,21 @@ const Contactus = () => {
             <br />
             <br />
             <h4>
-              Emails:
-              <a href="mailto:customer@AASTUMarketPlace.com">
-                customer@AASTUMarketPlace.com
+              Emails: 
+              <a href="mailto:dawitgetachew808@gmail.com">
+                 dawitgetachew808@gmail.com
               </a>
             </h4>
             <h4>
-              Emails:
-              <a href="mailto:support@AASTUMarketPlace.com">
-                support@AASTUMarketPlace.com
+              Emails: 
+              <a href="mailto:ey.mazi222@gmail.com">
+                 ey.mazi222@gmail.com
               </a>
             </h4>
             <h4>
-              Emails:
-              <a href="mailto:AASTUMarketPlace@gmail.com">
-                AASTUMarketPlace@gmail.com
+              Emails: 
+              <a href="mailto:ey.mazi233@gmail.com">
+                 ey.mazi233@gmail.com
               </a>
             </h4>
           </form>

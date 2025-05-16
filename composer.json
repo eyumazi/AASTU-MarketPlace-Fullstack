@@ -1,0 +1,7 @@
+{
+    "name": "aastu/marketplace",
+    "type": "project",
+    "require": {
+        "bramus/router": "^1.6"
+    }
+}
