@@ -7,7 +7,7 @@ import "remixicon/fonts/remixicon.css";
 import DeliveryInfo from "../Components/DeliveryInfo";
 import showToast from "../Components/showToast";  
 import StarRating from "../Components/StarRating";
-import { supabase } from "../supabaseClient";
+
 import img57 from "../Assets/image 57.png";
 import img58 from "../Assets/image 58.png";
 import img59 from "../Assets/image 59.png";

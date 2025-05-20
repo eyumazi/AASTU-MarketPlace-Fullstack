@@ -14,18 +14,9 @@ import About from "../Pages/About";
 import Profile from "../Pages/Profile";
 import { Registration } from "../Pages/Registration";
 import LoginPage from "../Pages/login";
-
-import Landing from "../Pages/Landing";
-
 import AdminDashboard from "../Pages/AdminDashboard";
 import { AuthProvider } from "./AuthContext";
-
 const routes = createBrowserRouter([
-
-  {
-    path: "/",
-    element: <Landing/>,
-  },
   {
     path: "/",
     element: (
@@ -36,13 +27,10 @@ const routes = createBrowserRouter([
       </AuthProvider>
     ),
     children: [
-      
       { path: "/contacus", element: <Contactus /> },
-
-      
+      { path: "/", element: <HomeBuyer /> },
       { path: "homebuyer", element: <HomeBuyer /> },
       { path: "homesaller", element: <HomeSaller /> },
-
       { path: "contacus", element: <Contactus /> },
       { path: "accountsettings", element: <AccountSettings /> },
       { path: "signup", element: <Registration /> },

@@ -1,9 +1,17 @@
 {
   "dependencies": {
-    "@supabase/supabase-js": "^2.49.4",
-    "react": "^19.1.0",
+
+
+
+    
+    "vite": "^6.2.3",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.4.0",
-    "vite": "^6.2.3"
+  
+    
+
+
+    "@supabase/supabase-js": "^2.49.4",
+    "react-router-dom": "^7.4.0"
+   
   }
 }
