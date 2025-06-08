@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import "../CSS/Checkout.css";
-import { supabase } from "../supabaseClient";
-import showToast from "../Components/showToast";
+
 const Checkout = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -117,11 +116,7 @@ console.log(orderData);
        
 
       } else {
-        showToast({
-          type: "error",
-          message: data.message || "Failed to place order"
-        })
-        
+        setErrors(data.errors || { general: "Failed to place order" });
       }
     } catch (error) {
       console.error("Error:", error);

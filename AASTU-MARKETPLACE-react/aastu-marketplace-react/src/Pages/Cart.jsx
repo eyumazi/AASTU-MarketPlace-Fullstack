@@ -5,7 +5,7 @@ import img613 from "../Assets/Frame 613.png";
 import img611 from "../Assets/Frame 611.png";
 import { useCart } from '../Components/CartContext';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from "../supabaseClient";
+
 const Cart = () => {
     const { cartItems, removeFromCart, updateCartItem } = useCart();
     const navigate = useNavigate();
