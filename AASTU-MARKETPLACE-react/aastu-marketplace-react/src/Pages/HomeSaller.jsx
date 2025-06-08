@@ -7,6 +7,7 @@ import ItemSales from "../Components/home/item";
 import PostModal from "../Components/home/Post";
 import "..//CSS/Post.css";
 
+
 const HomeSaller = () => {
   const [showModal, setShowModal] = useState(false);
 

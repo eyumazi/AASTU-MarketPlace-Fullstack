@@ -238,23 +238,32 @@ console.log(orderData);
               
             </table>
     
-            <div className="payment-method">
-              {paymentMethods.map((method) => (
-                <div key={method.value}>
-                  <input
-                    type="radio"
-                    name="pay"
-                    value={method.value}
-                    onChange={handlePaymentChange}
-                    checked={selectedPayment === method.value}
-                  />
-                  <label>{method.label}</label>
-                </div>
-              ))}
-              {paymentError && <div className="error">{paymentError}</div>}
+             <div className="payment-methods">
+          <h3 className="payment-title">Payment Method</h3>
+          {paymentMethods.map((method) => (
+            <div 
+              className={`payment-method ${selectedPayment === method.value ? 'selected' : ''}`} 
+              key={method.value}
+              onClick={() => setSelectedPayment(method.value)}
+            >
+              <div className="method-radio">
+                <input
+                  type="radio"
+                  name="pay"
+                  value={method.value}
+                  onChange={handlePaymentChange}
+                  checked={selectedPayment === method.value}
+                />
+                <span className="radio-custom"></span>
+              </div>
+              <i className={`method-icon ${method.icon}`}></i>
+              <label className="method-label">{method.label}</label>
             </div>
-          </div>
-        );
+          ))}
+          {paymentError && <div className="payment-error">{paymentError}</div>}
+        </div>
+      </div>
+    );
       };
   if (orderSuccess) {
     return (
@@ -263,9 +272,9 @@ console.log(orderData);
         <p>Thank you for your purchase.</p>
         <div className="order-details">
           <p><strong>Order ID:</strong> {orderDetails.orderId}</p>
-          <p><strong>Total:</strong> ${orderDetails.total.toFixed(2)}</p>
+          <p><strong>Total:</strong> {orderDetails.total.toFixed(2)} ETB</p>
         </div>
-        <button onClick={() => navigate('/products')}>Continue Shopping</button>
+        <button onClick={() => navigate('/homebuyer')}>Continue Shopping</button>
       </div>
     );
   }

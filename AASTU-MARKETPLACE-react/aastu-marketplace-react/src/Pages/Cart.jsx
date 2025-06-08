@@ -142,7 +142,7 @@ const Cart = () => {
             {cartData.length === 0 ? (
                 <div className="empty-cart">
                     <p>No items in cart.</p>
-                    <Link to="/products">
+                    <Link to="/homebuyer">
                         <button className="shop-button">Continue Shopping</button>
                     </Link>
                 </div>
@@ -197,10 +197,11 @@ const Cart = () => {
 
                     <div className="cart-buttons" id="cart-buttons">
                         <div className="return button">
-                            <Link to="/products" >
+                            <Link to="/homebuyer" >
                                 <input type="button" value="Return to Shop"/>
                             </Link>
                         </div>
+                        
                         <div className="update button">
                             <input 
                                 type="button" 

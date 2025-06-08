@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import loginVector from "../Assets/login_vector2.png";
 import loginIcon from "../Assets/login_icon.png";
 import "../CSS/login.css";
+import { supabase } from "../supabaseClient";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const LoginPage = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:8000/process_login.php", {
+      const response = await fetch("http://localhost/backend/process_login.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

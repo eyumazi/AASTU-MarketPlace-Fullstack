@@ -4,7 +4,7 @@ import "../CSS/Registration.css";
 import favicon from "../Assets/AASTUMARKETPLACE.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FiUpload, FiX, FiRefreshCw } from "react-icons/fi";
-
+import { supabase } from "../supabaseClient";
 export const Registration = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -140,6 +140,7 @@ export const Registration = () => {
 
     if (!isValid) {
       setError("Please fix the errors below");
+      console.log(errors);
       return;
     }
 
@@ -165,7 +166,7 @@ export const Registration = () => {
 
       formDataToSend.append("terms", e.target.terms.checked);
 
-      const response = await fetch("http://localhost:8000/register.php", {
+      const response = await fetch("http://localhost/backend/register.php", {
         method: "POST",
         body: formDataToSend,
       });
@@ -204,7 +205,7 @@ export const Registration = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://localhost:8000/register.php", {
+      const response = await fetch("http://localhost/backend/register.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -232,7 +233,7 @@ export const Registration = () => {
   const handleResendCode = async () => {
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://localhost:8000/register.php", {
+      const response = await fetch("http://localhost/backend/register.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

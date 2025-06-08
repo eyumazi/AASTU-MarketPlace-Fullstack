@@ -23,7 +23,7 @@ body {
 .product-list {
     display: flex;
     justify-content: space-between;
-    margin-left: 9rem;
+    
     margin-right: 9rem;
     margin-top: 3rem;
     box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.1);
@@ -77,7 +77,7 @@ body {
 
 .cart-total {
     width: fit-content;
-    display: flex;
+    
     flex-direction: column;
     align-items: flex-end;
     margin-left: 150px;
@@ -112,46 +112,12 @@ body {
     background-color: #00a9e3;   
 }
 
-.coupon {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-     right: 17rem;
-     bottom: 24rem;     
-}
 
-.coupon > .size {
-    padding: 0.9rem;
-}
-
-.coupon > .space {
-    margin-right: 1rem;
-    border-radius: 5px;    
-}
-
-.coupon > button {
-    background-color: #004f7d;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.coupon > button:hover {
-    background-color: #00a9e3;
-    border: none;
-}
 
 /* Media Queries */
 
 @media(max-width: 1200px){
-    .coupon {
-        right: auto; 
-        bottom: auto; 
-        justify-content: center;
-        margin-top: 20px; 
-        flex-wrap: wrap;  
-        position: static;
-   }
+
    .cart-total {
     margin-left: 0; 
     align-items: center; 
@@ -202,14 +168,7 @@ body {
         align-self: center;
     }
 
-    .coupon {
-        right: auto; 
-        bottom: auto; 
-        justify-content: center;
-        margin-top: 20px; 
-        flex-wrap: wrap;  
-        position: static;
-   }
+    
 }
 
 @media (max-width: 768px) {
@@ -234,13 +193,7 @@ body {
        align-items: center; 
    }
 
-   .coupon {
-       flex-direction: column; 
-       
-       align-items: center; 
-       right:auto; 
-       bottom:auto; 
-   }
+   
 }
 
 @media (max-width:528px) {
@@ -276,10 +229,7 @@ body {
        padding-right: 8px; 
    }
 
-   .coupon > button, .coupon > .size, .coupon > .space {
-       width: auto; 
-       margin-bottom :10px ;
-   }
+  
 }
 
 @media (max-width: 392px){

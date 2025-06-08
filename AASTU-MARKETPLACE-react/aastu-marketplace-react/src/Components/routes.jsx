@@ -29,11 +29,12 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: (
+       <CartProvider>
       <AuthProvider>
-        <CartProvider>
           <Layout />
+          </AuthProvider>
         </CartProvider>
-      </AuthProvider>
+      
     ),
     children: [
       
@@ -41,7 +42,7 @@ const routes = createBrowserRouter([
 
       
       { path: "homebuyer", element: <HomeBuyer /> },
-      { path: "homesaller", element: <HomeSaller /> },
+      { path: "homeseller", element: <HomeSaller /> },
 
       { path: "contacus", element: <Contactus /> },
       { path: "accountsettings", element: <AccountSettings /> },
@@ -54,7 +55,7 @@ const routes = createBrowserRouter([
       { path: "/profile", element: <Profile /> },
       { path: "cart", element: <Cart /> },
       { path: "checkout", element: <Checkout /> },
-      { path: "productdetails", element: <ProductDetails /> },
+      { path: "productdetails/:id", element: <ProductDetails /> },
     ],
   },
 ]);

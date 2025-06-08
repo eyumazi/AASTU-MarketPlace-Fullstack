@@ -1,0 +1,118 @@
+/* Main container */
+.size {
+  margin: 1.5rem 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Label styling */
+.size label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Buttons container */
+.size-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+/* Base button style */
+.size input[type="button"] {
+  padding: 0.6rem 0.5rem;
+  border: 2px solid #e0e0e0;
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+  transition: all 0.25s ease;
+  min-width: 3.5rem;
+  text-align: center;
+  position: relative;
+  outline: none;
+}
+
+/* Hover state */
+.size input[type="button"]:hover {
+  border-color: #b0b0b0;
+  background-color: #f9f9f9;
+}
+
+/* Selected state */
+.size input[type="button"].selected {
+  background-color: #000;
+  color: white;
+  border-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state (accessibility) */
+.size input[type="button"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state */
+.size input[type="button"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+/* Out of stock style */
+.size input[type="button"].out-of-stock {
+  position: relative;
+  color: #bbb;
+  border-color: #eee;
+}
+
+.size input[type="button"].out-of-stock::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #ff3b30;
+  transform: rotate(-10deg);
+}
+
+/* Size guide link */
+.size .size-guide {
+  margin-left: 0.75rem;
+  color: #666;
+  font-size: 0.85rem;
+  font-weight: normal;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .size-buttons {
+    gap: 0.5rem;
+  }
+  
+  .size input[type="button"] {
+    padding: 0.5rem 0.9rem;
+    min-width: 3rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Animation for selection */
+@keyframes sizeSelection {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.size input[type="button"].selected {
+  animation: sizeSelection 0.3s ease;
+}

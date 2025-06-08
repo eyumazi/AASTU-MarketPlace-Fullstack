@@ -17,13 +17,18 @@ import img611 from "../Assets/Frame 611.png";
 import img612 from "../Assets/Frame 612.png";
 import img610 from "../Assets/Frame 610.png";
 import img613 from "../Assets/Frame 613.png";
-
+import SizeSelector from "../Components/SizeSelector";
+import { Carousel } from 'react-responsive-carousel';
 const ProductDetails = () => {
   const { id } = useParams();
+  console.log('Product ID from URL:', id);
   const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+   const [quantity, setQuantity] = useState(1);
+   const [selectedColor, setSelectedColor] = useState('red');
+  const [selectedSize, setSelectedSize] = useState('');
   const [pagination, setPagination] = useState({
     currentPage: 1,
     itemsPerPage: 4,
@@ -31,13 +36,25 @@ const ProductDetails = () => {
     totalPages: 1
   });
   const [loadingRelated, setLoadingRelated] = useState(false);
+ let productImages = [];
+
+  const handleQuantityChange = (e) => {
+    const value = Math.max(1, Math.min(2000, parseInt(e.target.value) || 1));
+    setQuantity(value);
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
+        if (!id) {
+      console.error('Product ID is missing');
+      setLoading(false);
+      return;
+    }
       try {
         const response = await fetch(`http://localhost/backend/getProduct.php?id=${id}`);
         const data = await response.json();
-        setProduct(data);
+        console.log('Fetched product:', data);
+        setProduct(data.product || null);
       } catch (error) {
         console.error('Error fetching product:', error);
       } finally {
@@ -107,13 +124,13 @@ const ProductDetails = () => {
         return; // Exit the function if not enough stock
       }
       
-      // Proceed with adding to cart since stock is available
+      // Proceed with adding to cart since stock is available 
       const cartItem = {
         product_id: product.id,
         name: product.name,
         price: product.price,
-        quantity: quantity,
-        image: product.image_url,
+        quantity:quantity,
+        image: product.image,
         subtotal: product.price * quantity
       };
       
@@ -121,10 +138,17 @@ const ProductDetails = () => {
       const response = await fetch('http://localhost/backend/addToCart.php', {
         method: 'POST',
         headers: {
+          
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(cartItem)
+        
+       
       });
+      
+      
+
+     console.log('Adding to cart:', cartItem);
 
       const result = await response.json();
       
@@ -142,7 +166,8 @@ const ProductDetails = () => {
         });
       }
     } catch (error) {
-      console.error('Error:', error);
+      // show full error details in console
+     console.error('Full error details:', error);
       showToast({
         message: 'Error processing your request. Please try again.',
         type: 'error'
@@ -162,155 +187,192 @@ const ProductDetails = () => {
   if (!product) return <div className="Ntf">Product not found.</div>;
 
   return (
-    <div>
-      <div className="main">
-        
-        <div className="image1">
-           <img src={img57} alt="" />
-         </div>
-         <div className="image2">
-           <img src={img58} alt="" />
-         </div>
-         <div className="image3">
-           <img src={img59} alt="" />
-         </div>
-         <div className="image4">
-           <img src={img61} alt="" />
-         </div>
-         <div className="image5">
-           <img src={img63} alt="" />
-         </div>
-
-         <div className="discription">
-           <h3>{product.name}</h3>
-           <span className="head"></span>
-           <StarRating initialRating={4} reviewCount={150} />
-           <h4>{product.price}</h4>
-           <p>
-             {product.description}
-           </p>
-
-           <div className="color-choice-container">
-  <span className="choice-label">Colour:</span>
-  
-  <div className="radio-option">
-    <input 
-      id="red" 
-      type="radio" 
-      name="color-choose" 
-      className="color-radio"
+    <div className="product-detail-container">
+      <div className="product-main-section">
+        {/* Product Images Carousel */}
+        <div className="product-images-carousel">
+          <div className="product-main-section">
+  <div className="product-image-container">
+    <img 
+      src={`http://localhost/backend/uploads/${product.image}`}
+      alt={`${product.name}`} 
+      className="product-main-image"
     />
-    <label htmlFor="red" className="radio-label">
-      <span className="radio-button"></span>
-      <span className="radio-text">Red</span>
-    </label>
-  </div>
-  
-  <div className="radio-option">
-    <input 
-      id="blue" 
-      type="radio" 
-      name="color-choose" 
-      className="color-radio"
-    />
-    <label htmlFor="blue" className="radio-label">
-      <span className="radio-button"></span>
-      <span className="radio-text">Blue</span>
-    </label>
   </div>
 </div>
-           {product.category === 'clothes' && (
-        <div className="size">
-          <label htmlFor="">Size:</label>
-          <input className="space" type="button" value="XS" />
-          <input className="space" type="button" value="S" />
-          <input className="space" type="button" value="M" />
-          <input className="space" type="button" value="L" />
-          <input className="space" type="button" value="XL" />
-        </div>
-      )}
-           <input className="spin" type="number" min="1" max="20" required />
-           <button 
-             className="addcart"
-             id="addcart"
-             type="submit"
+</div>
             
-             onClick={handleAddToCart}
-           >Add to Cart</button>
 
-           <DeliveryInfo />
-         </div>
-        <div className="items-details">
-          <h4 className="related">Related items</h4>
+        {/* Product Information */}
+        <div className="product-info-section">
+          <h1 className="product-title">{product.name}</h1>
+          
+          <div className="product-rating">
+            <StarRating initialRating={4} reviewCount={150} />
+            <a href="#reviews" className="review-link">(150 reviews)</a>
+          </div>
 
-          {loadingRelated ? (
-            <div className="loading-related">
-              <div className="loading-spinner-small"></div>
+          <div className="product-price">
+            <span className="current-price">{product.price} ETB</span>
+            {product.original_price && (
+              <span className="original-price">{product.original_price} ETB</span>
+            )}
+            {product.discount && (
+              <span className="discount-badge">-{product.discount}%</span>
+            )}
+          </div>
+
+          <p className="product-description">{product.description}</p>
+
+          {/* Color Selection */}
+          <div className="product-option-section">
+            <h3 className="option-title">Color:</h3>
+            <div className="color-options">
+              {['red', 'blue'].map(color => (
+                <div key={color} className="color-option">
+                  <input
+                    type="radio"
+                    id={color}
+                    name="color"
+                    checked={selectedColor === color}
+                    onChange={() => setSelectedColor(color)}
+                  />
+                  <label htmlFor={color} className={`color-label ${color}`}>
+                    <span className="color-name">{color.charAt(0).toUpperCase() + color.slice(1)}</span>
+                  </label>
+                </div>
+              ))}
             </div>
-          ) : relatedProducts.length > 0 ? (
-            <>
-              <div className="related-products-grid">
-                {relatedProducts.map((relatedProduct) => (
-                  <div className="item" key={relatedProduct.id}>
+          </div>
+
+          {/* Size Selection (only for clothes) */}
+          {product.category === 'clothes' && (
+            <div className="product-option-section">
+              <h3 className="option-title">Size:</h3>
+              <SizeSelector 
+                selectedSize={selectedSize}
+                onSelectSize={setSelectedSize}
+              />
+            </div>
+          )}
+
+          {/* Quantity Selector */}
+          <div className="quantity-selector">
+            <h3 className="option-title">Quantity:</h3>
+            <div className="quantity-controls">
+              
+              <input
+                type="number"
+                min="1"
+                max="2000"
+               
+                
+                className="spin"
+              />
+             
+            </div>
+          </div>
+
+          {/* Add to Cart Button */}
+          <button 
+            className="add-to-cart-btn"
+            onClick={() => handleAddToCart({...product, quantity})}
+          >
+            <i className="ri-shopping-cart-line"></i> Add to Cart
+          </button>
+
+          {/* Delivery Information */}
+          <DeliveryInfo />
+        </div>
+      </div>
+
+      {/* Related Products Section */}
+      <div className="related-products-section">
+        <h2 className="section-title">Related Products</h2>
+        
+        {loadingRelated ? (
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+          </div>
+        ) : relatedProducts.length > 0 ? (
+          <>
+            <div className="related-products-grid">
+              {relatedProducts.map((relatedProduct) => (
+                <div className="related-product-card" key={relatedProduct.id}>
+                  <div className="product-image-container">
                     <img 
-                      src={relatedProduct.image_url || 'default-product-image.jpg'} 
-                      alt={relatedProduct.name} 
+                      src={`http://localhost/backend/uploads/${relatedProduct.image}`}
+                      alt={relatedProduct.name}
+                      className="related-product-image"
                     />
-                    <div 
-                      className="add-to-cart"
-                      onClick={() => handleAddToCart(relatedProduct)}
-                    >
-                      Add to Cart
-                    </div>
-
-                    <i className="ri-heart-3-line love"></i>
-                    <i className="ri-eye-line eye"></i>
-
-                    <div className="content">
-                      <p>{relatedProduct.name}</p>
-                      <h5>
-                        {relatedProduct.price} ETB
-                        {relatedProduct.original_price && (
-                          <del>${relatedProduct.original_price} ETB</del>
-                        )}
-                      </h5>
-                      <StarRating initialRating={4} reviewCount={130} />
+                    <div className="product-actions">
+                      <button className="wishlist-btn">
+                        <i className="ri-heart-3-line"></i>
+                      </button>
+                      <button 
+                        className="quick-view-btn"
+                        onClick={() => console.log("Quick view", relatedProduct.id)}
+                      >
+                        <i className="ri-eye-line"></i>
+                      </button>
+                      <button 
+                        className="quick-add-btn"
+                        onClick={() => handleAddToCart({...relatedProduct, quantity: 1})}
+                      >
+                        <i className="ri-shopping-cart-line"></i> Add to Cart
+                      </button>
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div className="product-info">
+                    <h3 className="product-name">{relatedProduct.name}</h3>
+                    <div className="price">
+                      <span className="current-price">{relatedProduct.price} ETB</span>
+                      {relatedProduct.original_price && (
+                        <span className="original-price">{relatedProduct.original_price} ETB</span>
+                      )}
+                    </div>
+                    <StarRating initialRating={4} reviewCount={130} />
+                  </div>
+                </div>
+              ))}
+            </div>
 
-              {/* Pagination Controls */}
+            {/* Pagination Controls */}
+            {pagination.totalPages > 1 && (
               <div className="pagination-controls">
                 <button 
+                  className={`pagination-btn ${pagination.currentPage === 1 ? 'disabled' : ''}`}
                   onClick={() => handlePageChange(pagination.currentPage - 1)}
                   disabled={pagination.currentPage === 1}
                 >
-                  Previous
+                  <i className="ri-arrow-left-s-line"></i> Previous
                 </button>
                 
-                {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map(page => (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={pagination.currentPage === page ? 'active' : ''}
-                  >
-                    {page}
-                  </button>
-                ))}
+                <div className="page-numbers">
+                  {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map(page => (
+                    <button
+                      key={page}
+                      className={`page-btn ${pagination.currentPage === page ? 'active' : ''}`}
+                      onClick={() => handlePageChange(page)}
+                    >
+                      {page}
+                    </button>
+                  ))}
+                </div>
                 
                 <button 
+                  className={`pagination-btn ${pagination.currentPage === pagination.totalPages ? 'disabled' : ''}`}
                   onClick={() => handlePageChange(pagination.currentPage + 1)}
                   disabled={pagination.currentPage === pagination.totalPages}
                 >
-                  Next
+                  Next <i className="ri-arrow-right-s-line"></i>
                 </button>
               </div>
-            </>
-          ) : (
-            <p>No related products found</p>
-          )}
-        </div>
+            )}
+          </>
+        ) : (
+          <p className="no-products-message">No related products found</p>
+        )}
       </div>
     </div>
   );
